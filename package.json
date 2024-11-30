@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "compile": "npx tsc",
-    "start": "nodemon dist/GetGiftsExpressController.js"
+    "start": "nodemon dist/index.js"
   },
   "keywords": [],
   "author": "",

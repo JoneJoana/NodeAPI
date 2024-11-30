@@ -1,19 +1,11 @@
 import {Router} from 'express';
-import {GiftRepository} from "../GiftRepository";
+import {getSimpleController, getToWhoController} from "../controllers/GetGiftsController";
 
 
 const getGiftsRouter = Router();
 
-const giftsRepository = new GiftRepository();
-const giftsList = giftsRepository.getGifts();
+getGiftsRouter.get('/gifts', getSimpleController);
 
-getGiftsRouter.get('/gifts', (req, res) => {
-    res.send(JSON.stringify(giftsList));
-});
-
-getGiftsRouter.get('/gifts/:toWho', (req, res) => {
-    const { toWho } = req.params;
-    res.send(JSON.stringify(giftsList[toWho]));
-});
+getGiftsRouter.get('/gifts/:toWho', getToWhoController);
 
 export default getGiftsRouter;

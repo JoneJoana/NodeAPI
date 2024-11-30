@@ -3,15 +3,21 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "npx tsc",
+    "start": "nodemon dist/GetGiftsExpressController.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.1",
     "chalk": "^5.3.0",
-    "progress": "^2.0.3"
-  },
-  "type": "module"
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7",
+    "progress": "^2.0.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  }
 }

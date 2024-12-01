@@ -1,9 +1,13 @@
 import {Gift} from "./Gift";
 
 export class GiftRepository {
+    private giftList: Map<string, Gift>;
+
     private static instance: GiftRepository;
 
-    private constructor() {}
+    private constructor() {
+        this.giftList = new Map<string, Gift>();
+    }
 
     static getInstance(): GiftRepository {
         if (this.instance) {
@@ -13,22 +17,19 @@ export class GiftRepository {
         return this.instance;
     }
 
-    giftList: Gift[] = [
-        new Gift("estufa",80,"papa"),
-        new Gift("collar",5000,"mama"),
-        new Gift("calzoncillo",300,"oscar")
-    ];
-
-    addGift(gift: Gift): void{
-        this.giftList.push(gift);
-    }
-
-    getGifts(): Gift[] {
+    getGifts(): Map<string, Gift> {
         return this.giftList;
     }
 
-    deleteGift(id: string): void{
-        let index = this.giftList.findIndex(d => d.id === id); //find index in your array
-        this.giftList.splice(index, 1);//remove element from array
+    getGift(id: string): Gift {
+        return this.giftList.get(id);
+    }
+
+    addGift(gift: Gift): void{
+        this.giftList.set(gift.id, gift);
+    }
+
+    deleteGift(id: string): boolean{
+        return this.giftList.delete(id);
     }
 }

@@ -3,13 +3,13 @@ import {Request, Response} from 'express';
 import {Gift} from "../Gift";
 
 export class GetGiftsController{
-    giftsRepository: GiftRepository;
+    giftRepository: GiftRepository;
     giftsList: Gift[];
 
     constructor() {
-        this.giftsRepository = new GiftRepository();
-        this.giftsList = this.giftsRepository.getGifts();
-    }
+        this.giftRepository = GiftRepository.getInstance();
+        this.giftsList = this.giftRepository.getGifts();
+    };
 
     GetAll(req: Request, res: Response){
         res.send(JSON.stringify(this.giftsList));

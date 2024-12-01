@@ -1,6 +1,18 @@
 import {Gift} from "./Gift";
 
 export class GiftRepository {
+    private static instance: GiftRepository;
+
+    private constructor() {}
+
+    static getInstance(): GiftRepository {
+        if (this.instance) {
+            return this.instance;
+        }
+        this.instance = new GiftRepository();
+        return this.instance;
+    }
+
     giftList: Gift[] = [
         new Gift("estufa",80,"papa"),
         new Gift("collar",5000,"mama"),

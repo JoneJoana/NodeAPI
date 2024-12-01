@@ -6,8 +6,8 @@ export class PostGiftsController{
     giftRepository: GiftRepository;
 
     constructor() {
-        this.giftRepository = new GiftRepository();
-    }
+        this.giftRepository = GiftRepository.getInstance();
+    };
 
     post(req: Request, res: Response) {
         const gift = new Gift(

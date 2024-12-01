@@ -1,7 +1,7 @@
 import {Gift} from "./Gift";
 
 export class GiftRepository {
-    private giftList: Map<string, Gift>;
+    private readonly giftList: Map<string, Gift>;
 
     private static instance: GiftRepository;
 
@@ -31,5 +31,12 @@ export class GiftRepository {
 
     deleteGift(id: string): boolean{
         return this.giftList.delete(id);
+    }
+
+    patch(id: string, data: any) {
+        const gift: Gift = this.giftList.get(id);
+        gift.name = data.name?? gift.name;
+        gift.price = data.price?? gift.price;
+        gift.toWho = data.toWho?? gift.toWho;
     }
 }

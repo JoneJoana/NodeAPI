@@ -3,7 +3,7 @@ import {GiftRepository} from "../GiftRepository";
 
 
 export class DeleteGiftsController {
-    giftRepository: GiftRepository;
+    private readonly giftRepository: GiftRepository;
 
     constructor() {
         this.giftRepository = GiftRepository.getInstance();

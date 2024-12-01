@@ -3,7 +3,7 @@ import {GiftRepository} from "../GiftRepository";
 import {Gift} from "../Gift";
 
 export class PostGiftsController{
-    giftRepository: GiftRepository;
+    private readonly giftRepository: GiftRepository;
 
     constructor() {
         this.giftRepository = GiftRepository.getInstance();
@@ -11,9 +11,9 @@ export class PostGiftsController{
 
     post(req: Request, res: Response) {
         const gift = new Gift(
-            req.body.data.name,
-            req.body.data.price,
-            req.body.data.toWho
+            req.body.name,
+            req.body.price,
+            req.body.toWho
         );
         this.giftRepository.addGift(gift);
         res.send(`Gift added: ${gift.print()}`);

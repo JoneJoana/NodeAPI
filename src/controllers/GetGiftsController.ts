@@ -2,7 +2,7 @@ import {GiftRepository} from "../GiftRepository";
 import {Request, Response} from 'express';
 
 export class GetGiftsController{
-    giftRepository: GiftRepository;
+    private readonly giftRepository: GiftRepository;
 
     constructor() {
         this.giftRepository = GiftRepository.getInstance();

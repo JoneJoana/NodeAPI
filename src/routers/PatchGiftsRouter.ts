@@ -4,7 +4,7 @@ import {PatchGiftsController} from "../controllers/PatchGiftsController";
 const patchGiftsRouter = Router();
 const patchGiftsController = new PatchGiftsController();
 
-patchGiftsRouter.patch('/gift/:pos', patchGiftsController.patch);
+patchGiftsRouter.patch('/gift/:id', patchGiftsController.patch.bind(patchGiftsController));
 
 
 export default patchGiftsRouter;

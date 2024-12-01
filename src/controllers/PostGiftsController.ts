@@ -1,3 +1,3 @@
-export const postNewGiftsList = (req,res) => {
-    res.send('Gifts added')
+export const postNewGift = (req,res) => {
+    res.send('Gift added')
 };

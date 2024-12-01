@@ -1,12 +1,12 @@
 import express from 'express';
-import getGiftsRouter from "./routers/getGiftsRouter";
-import postGiftRouter from "./routers/PostGiftRouter";
+import getGiftsRouter from "./routers/GetGiftsRouter";
+import postGiftsRouter from "./routers/PostGiftsRouter";
 
 const app = express();
 const port = 3000;
 
 app.use(getGiftsRouter);
-app.use(postGiftRouter);
+app.use(postGiftsRouter);
 
 // Iniciar el servidor
 app.listen(port, () => {

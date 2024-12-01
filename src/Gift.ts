@@ -8,4 +8,8 @@ export class Gift {
         this.price = price;
         this.toWho = toWho;
     }
+
+    print(): string{
+        return `${this.name} for ${this.toWho}`;
+    };
 }

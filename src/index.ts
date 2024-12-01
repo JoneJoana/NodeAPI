@@ -8,11 +8,13 @@ import deleteGiftsRouter from "./routers/DeleteGiftsRouter";
 const app = express();
 const port = 3000;
 
+app.use(express.json()); // to get json body
 app.use(getGiftsRouter);
 app.use(postGiftsRouter);
 app.use(putGiftsRouter);
 app.use(patchGiftsRouter);
 app.use(deleteGiftsRouter);
+
 
 // Iniciar el servidor
 app.listen(port, () => {

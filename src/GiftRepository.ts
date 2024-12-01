@@ -26,4 +26,9 @@ export class GiftRepository {
     getGifts(): Gift[] {
         return this.giftList;
     }
+
+    deleteGift(id: string): void{
+        let index = this.giftList.findIndex(d => d.id === id); //find index in your array
+        this.giftList.splice(index, 1);//remove element from array
+    }
 }

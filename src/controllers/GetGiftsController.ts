@@ -9,12 +9,12 @@ export class GetGiftsController{
     };
 
     GetAll(req: Request, res: Response){
-        res.send(JSON.stringify(this.giftRepository.getGifts()));
+        res.json(this.giftRepository.getGifts());
     };
 
     GetToWho(req: Request, res: Response){
         const { toWho } = req.params;
-        res.send(JSON.stringify(this.giftRepository.getGifts()[toWho]));
+        res.json(this.giftRepository.getGifts()[toWho]);
     };
 }
 

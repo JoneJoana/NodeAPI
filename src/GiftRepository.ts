@@ -25,7 +25,7 @@ export class GiftRepository {
         return this.giftList.get(id);
     }
 
-    addGift(gift: Gift): void{
+    saveGift(gift: Gift): void{
         this.giftList.set(gift.id, gift);
     }
 
@@ -33,7 +33,7 @@ export class GiftRepository {
         return this.giftList.delete(id);
     }
 
-    patch(id: string, data: any) {
+    patchGift(id: string, data: any) {
         const gift: Gift = this.giftList.get(id);
         gift.name = data.name?? gift.name;
         gift.price = data.price?? gift.price;

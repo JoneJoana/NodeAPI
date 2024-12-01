@@ -15,7 +15,7 @@ export class PostGiftsController{
             req.body.price,
             req.body.toWho
         );
-        this.giftRepository.addGift(gift);
+        this.giftRepository.saveGift(gift);
         res.send(`Gift added: ${gift.print()}`);
     };
 }

@@ -11,7 +11,7 @@ export class PatchGiftsController{
     patch(req: Request,res: Response) {
         const {id} = req.params;
         const data = req.body;
-        this.giftRepository.patch(id, data);
+        this.giftRepository.patchGift(id, data);
 
         const dataJson = JSON.stringify(data);
         res.send(`Modified gift in position ${id} with ${dataJson}`);

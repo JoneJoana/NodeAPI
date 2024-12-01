@@ -1,13 +1,24 @@
 import {GiftRepository} from "../GiftRepository";
+import {Request, Response} from 'express';
+import {Gift} from "../Gift";
 
-const giftsRepository = new GiftRepository();
-const giftsList = giftsRepository.getGifts();
+export class GetGiftsController{
+    giftsRepository: GiftRepository;
+    giftsList: Gift[];
 
-export const getSimpleController = (req, res) => {
-    res.send(JSON.stringify(giftsList));
-};
+    constructor() {
+        this.giftsRepository = new GiftRepository();
+        this.giftsList = this.giftsRepository.getGifts();
+    }
 
-export const getToWhoController = (req, res) => {
-    const { toWho } = req.params;
-    res.send(JSON.stringify(giftsList[toWho]));
-};
+    GetAll(req: Request, res: Response){
+        res.send(JSON.stringify(this.giftsList));
+    };
+
+    GetToWho(req: Request, res: Response){
+        const { toWho } = req.params;
+        res.send(JSON.stringify(this.giftsList[toWho]));
+    };
+}
+
+

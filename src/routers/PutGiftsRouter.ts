@@ -1,8 +1,9 @@
 import Router from 'express';
-import {putGiftsController} from "../controllers/PutGiftsController";
+import {PutGiftsController} from "../controllers/PutGiftsController";
 
 const putGiftsRouter = Router();
+const putGiftsController = new PutGiftsController();
 
-putGiftsRouter.put('/gift/:pos', putGiftsController);
+putGiftsRouter.put('/gift/:pos', putGiftsController.put);
 
 export default putGiftsRouter;

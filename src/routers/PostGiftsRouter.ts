@@ -1,8 +1,9 @@
 import Router from 'express';
-import {postNewGift} from "../controllers/PostGiftsController";
+import {PostGiftsController} from "../controllers/PostGiftsController";
 
 const postGiftsRouter = Router();
+const postNewGiftController = new PostGiftsController();
 
-postGiftsRouter.post('/gift', postNewGift);
+postGiftsRouter.post('/gift', postNewGiftController.post);
 
 export default postGiftsRouter;

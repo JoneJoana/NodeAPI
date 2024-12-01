@@ -1,11 +1,11 @@
 import {Router} from 'express';
-import {getSimpleController, getToWhoController} from "../controllers/GetGiftsController";
+import {GetGiftsController} from "../controllers/GetGiftsController";
 
 
 const getGiftsRouter = Router();
+const getGiftsController = new GetGiftsController();
 
-getGiftsRouter.get('/gifts', getSimpleController);
-
-getGiftsRouter.get('/gifts/:toWho', getToWhoController);
+getGiftsRouter.get('/gifts', getGiftsController.GetAll.bind(getGiftsController));
+getGiftsRouter.get('/gifts/:toWho', getGiftsController.GetToWho.bind(getGiftsController));
 
 export default getGiftsRouter;

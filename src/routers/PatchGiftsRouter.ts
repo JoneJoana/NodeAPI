@@ -1,9 +1,10 @@
 import Router from 'express';
-import {patchGiftsController} from "../controllers/PatchGiftsController";
+import {PatchGiftsController} from "../controllers/PatchGiftsController";
 
 const patchGiftsRouter = Router();
+const patchGiftsController = new PatchGiftsController();
 
-patchGiftsRouter.patch('/gift/:pos', patchGiftsController);
+patchGiftsRouter.patch('/gift/:pos', patchGiftsController.patch);
 
 
 export default patchGiftsRouter;

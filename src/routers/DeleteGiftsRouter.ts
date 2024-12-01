@@ -1,8 +1,9 @@
 import Router from 'express';
-import {deleteGiftsController} from "../controllers/DeleteGiftsController";
+import {DeleteGiftsController} from "../controllers/DeleteGiftsController";
 
 const deleteGiftsRouter = Router();
+const deleteGiftsController = new DeleteGiftsController();
 
-deleteGiftsRouter.delete('/gift/:pos', deleteGiftsController);
+deleteGiftsRouter.delete('/gift/:pos', deleteGiftsController.delete);
 
 export default deleteGiftsRouter;

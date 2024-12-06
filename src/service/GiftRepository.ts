@@ -1,4 +1,4 @@
-import {Gift} from "./Gift";
+import {Gift} from "../model/Gift";
 
 export class GiftRepository {
     private readonly giftList: Map<string, Gift>;

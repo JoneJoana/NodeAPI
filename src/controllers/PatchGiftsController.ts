@@ -1,5 +1,5 @@
 import {Request, Response} from 'express';
-import {GiftRepository} from "../GiftRepository";
+import {GiftRepository} from "../service/GiftRepository";
 
 export class PatchGiftsController{
     private readonly giftRepository: GiftRepository;

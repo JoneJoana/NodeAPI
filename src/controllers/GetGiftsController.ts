@@ -1,4 +1,4 @@
-import {GiftRepository} from "../GiftRepository";
+import {GiftRepository} from "../service/GiftRepository";
 import {Request, Response} from 'express';
 
 export class GetGiftsController{

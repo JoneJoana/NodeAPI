@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
-import {GiftRepository} from "../GiftRepository";
-import {Gift} from "../Gift";
+import {GiftRepository} from "../service/GiftRepository";
+import {Gift} from "../model/Gift";
 
 export class PostGiftsController{
     private readonly giftRepository: GiftRepository;

@@ -18,6 +18,6 @@ export class PutGiftsController{
         this.giftRepository.saveGift(gift);
 
         const dataJson = JSON.stringify(data);
-        res.send(`Updated gift with position ${gift.id} with ${dataJson}`);
+        res.status(200).json(gift);
     };
 }

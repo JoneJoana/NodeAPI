@@ -12,9 +12,7 @@ export class PatchGiftsController{
         const {id} = req.params;
         const data = req.body;
         this.giftRepository.patchGift(id, data);
-
-        const dataJson = JSON.stringify(data);
-        res.send(`Modified gift in position ${id} with ${dataJson}`);
+        res.status(200).json(data);
     };
 }
 

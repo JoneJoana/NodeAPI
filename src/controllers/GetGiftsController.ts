@@ -10,13 +10,13 @@ export class GetGiftsController{
 
     GetAll(req: Request, res: Response){
         const obj = Object.fromEntries(this.giftRepository.getGifts());
-        res.json(obj);
+        res.status(200).json(obj);
     };
 
     GetById(req: Request, res: Response){
         const { id } = req.params;
         const gift = this.giftRepository.getGift(id);
-        res.json(gift);
+        res.status(200).json(gift);
     };
 }
 

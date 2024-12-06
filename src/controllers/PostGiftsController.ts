@@ -16,6 +16,6 @@ export class PostGiftsController{
             req.body.toWho
         );
         this.giftRepository.saveGift(gift);
-        res.send(`Gift added: ${gift.print()}`);
+        res.status(201).json(gift);
     };
 }

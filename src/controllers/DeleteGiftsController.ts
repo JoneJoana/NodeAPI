@@ -12,7 +12,7 @@ export class DeleteGiftsController {
     delete(req: Request ,res: Response)  {
         const {id} = req.params;
         if(this.giftRepository.deleteGift(id)){
-            res.send(`Delete gift with uuid ${id}`);
+            res.status(204).send();
         } else{
             res.send(`Error deleting gift with UUID ${id}`);
         }

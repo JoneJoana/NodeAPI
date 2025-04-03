@@ -8,11 +8,16 @@ export class PatchGiftsController{
         this.giftRepository = GiftRepository.getInstance();
     };
 
-    patch(req: Request,res: Response) {
+    patch(req: Request,res: Response): Response {
         const {id} = req.params;
         const data = req.body;
-        this.giftRepository.patchGift(id, data);
-        res.status(200).json(data);
+        const isPatchDone = this.giftRepository.patchGift(id, data);
+        if(isPatchDone){
+            return res.status(200).json(data);
+        }
+        res.status(404).json({
+            message: "Gift not found"
+        });
     };
 }
 

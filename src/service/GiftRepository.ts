@@ -33,10 +33,14 @@ export class GiftRepository {
         return this.giftList.delete(id);
     }
 
-    patchGift(id: string, data: any) {
-        const gift: Gift = this.giftList.get(id);
+    patchGift(id: string, data: any): boolean {
+        const gift : Gift= this.giftList.get(id);
+        if (gift === undefined) {
+            return false;
+        }
         gift.name = data.name?? gift.name;
         gift.price = data.price?? gift.price;
         gift.toWho = data.toWho?? gift.toWho;
+        return true;
     }
 }

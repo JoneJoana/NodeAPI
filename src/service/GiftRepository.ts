@@ -1,4 +1,6 @@
 import {Gift} from "../model/Gift";
+import {GiftNotFoundError} from "../model/errors/GiftNotFoundError";
+import {HackError} from "../model/errors/HackError";
 
 export class GiftRepository {
     private readonly giftList: Map<string, Gift>;
@@ -21,7 +23,7 @@ export class GiftRepository {
         return this.giftList;
     }
 
-    getGift(id: string): Gift {
+    getGift(id: string): Gift | undefined {
         return this.giftList.get(id);
     }
 
@@ -29,8 +31,13 @@ export class GiftRepository {
         this.giftList.set(gift.id, gift);
     }
 
-    deleteGift(id: string): boolean{
-        return this.giftList.delete(id);
+    deleteGift(id: string){
+        if(id == "abc"){
+            throw new HackError();
+        }
+        if(!this.giftList.delete(id)){
+            throw new GiftNotFoundError(`Error deleting gift with UUID ${id}`);
+        }
     }
 
     patchGift(id: string, data: any): boolean {
